@@ -12,24 +12,24 @@ export class CountDownComponent implements OnInit, OnDestroy {
   
     public dateNow = new Date();
     public dDay = new Date('Apr 16 2022 00:00:00');
-    milliSecondsInASecond = 1000;
-    hoursInADay = 24;
-    minutesInAnHour = 60;
-    SecondsInAMinute  = 60;
+    public milliSecondsInASecond = 1000;
+    public hoursInADay = 24;
+    public minutesInAnHour = 60;
+    public SecondsInAMinute  = 60;
 
-    public timeDifference:any;
-    public secondsToDday:any;
-    public minutesToDday: any;
-    public hoursToDday: any;
-    public daysToDday: any;
+    public timeDifference:number = 0;
+    public secondsToDday:number = 0;
+    public minutesToDday: number = 0;
+    public hoursToDday: number = 0;
+    public daysToDday: number = 0;
 
 
-    private getTimeDifference () {
+    private getTimeDifference (): void {
         this.timeDifference = this.dDay.getTime() - new  Date().getTime();
         this.allocateTimeUnits(this.timeDifference);
     }
 
-  private allocateTimeUnits (timeDifference: any) {
+  private allocateTimeUnits (timeDifference: number): void {
         this.secondsToDday = Math.floor((timeDifference) / (this.milliSecondsInASecond) % this.SecondsInAMinute);
         this.minutesToDday = Math.floor((timeDifference) / (this.milliSecondsInASecond * this.minutesInAnHour) % this.SecondsInAMinute);
         this.hoursToDday = Math.floor((timeDifference) / (this.milliSecondsInASecond * this.minutesInAnHour * this.SecondsInAMinute) % this.hoursInADay);
@@ -46,7 +46,7 @@ export class CountDownComponent implements OnInit, OnDestroy {
       this.subscription.unsubscribe();
    }
 
-   playAudio(){
+   playAudio(): void{
     let audio = new Audio();
     audio.src = "../../assets/money.mp3";
     audio.load();
