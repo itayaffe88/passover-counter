@@ -1,0 +1,47 @@
+.timer {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 1.4em;
+    letter-spacing: -1px;
+    background: black;
+    color: #045adb;
+  }
+  .timer span {
+    font-size: 2em;
+    margin: 0 3px 0 15px;
+  }
+  .blinking{
+      color: red;
+    animation:blinkingText 1.2s infinite;
+}
+@keyframes blinkingText{
+    0%{     color: red;    }
+    49%{    color: red; }
+    60%{    color: transparent; }
+    99%{    color:transparent;  }
+    100%{   color: red;    }
+}
+
+html {
+    background: black;
+}
+body {
+    height: 100vh;
+}
+
+.action-center {
+    padding: 32px;
+    display: flex;
+    justify-content: center;
+    .button {
+        background-color: #00FF7F;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding: 14px;
+    font-size: 29px;
+    color: #696969;
+    border-radius: 20px;
+    cursor: pointer;
+    }
+}
